@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.82c472d6.css",
+    "main.js": "/static/js/main.e37631a1.js",
+    "static/js/787.1541a44e.chunk.js": "/static/js/787.1541a44e.chunk.js",
+    "static/media/image 360.svg": "/static/media/image 360.056b91ad9f33cd00945f5d8f49ac0ad0.svg",
+    "static/media/image 359.svg": "/static/media/image 359.d7b7dc8a8ad51098805bd89ef98a7d24.svg",
+    "static/media/image 361.svg": "/static/media/image 361.89447dc347d0414107714f13fa225cb2.svg",
+    "static/media/CG-footer-light.svg": "/static/media/CG-footer-light.1447805f508bcf46da773c7ba0741198.svg",
+    "static/media/CG-footer-dark.svg": "/static/media/CG-footer-dark.5df80fee024e5a07501acff60b7af367.svg",
+    "static/media/CG-logo-dark.svg": "/static/media/CG-logo-dark.270f89188e0ef3df31f33a18a442fd91.svg",
+    "static/media/CG-logo-light.svg": "/static/media/CG-logo-light.c99ef21d57cd41e2ef5dbda6552b9bf7.svg",
+    "static/media/CG_Logo_GoldNavy_header.svg": "/static/media/CG_Logo_GoldNavy_header.a4705205398bcb8d97e93e8e40185f97.svg",
+    "static/media/frame.svg": "/static/media/frame.4104cf7355c9ce2fe8d8b294d7d2a18d.svg",
+    "static/media/Landscape.svg": "/static/media/Landscape.82b3884073e634b2dbdcd0d0d1273b96.svg",
+    "static/media/Icon-3.svg": "/static/media/Icon-3.8c414dcf787d6276d58009d719316c3d.svg",
+    "static/media/Calltoaction.svg": "/static/media/Calltoaction.465a660ec3ff9171269101a33de78182.svg",
+    "static/media/ImageIcon.svg": "/static/media/ImageIcon.d70835910b9723fdec5ad2e3c6ee66ff.svg",
+    "static/media/Icon-2.svg": "/static/media/Icon-2.4ed3b1a19e296350df35b6f221749536.svg",
+    "index.html": "/index.html",
+    "static/media/Tt.svg": "/static/media/Tt.0c951d021b7f63a4d8c20c9c7f05a0f0.svg",
+    "static/media/Icon-1.svg": "/static/media/Icon-1.60e0b5728b6a08c0750a216381acce76.svg",
+    "main.82c472d6.css.map": "/static/css/main.82c472d6.css.map",
+    "main.e37631a1.js.map": "/static/js/main.e37631a1.js.map",
+    "787.1541a44e.chunk.js.map": "/static/js/787.1541a44e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.82c472d6.css",
+    "static/js/main.e37631a1.js"
+  ]
+}
