@@ -3,7 +3,6 @@ import { Contentcontext } from "../../context/Context";
 import { AiFillDelete } from "react-icons/ai";
 import { RiDragMove2Line } from "react-icons/ri";
 import { MdModeEditOutline } from "react-icons/md";
-import { useEffect } from "react";
 
 const CallToAction = ({
   indexVal,
@@ -13,7 +12,6 @@ const CallToAction = ({
   buttonUrl,
   buttonColor,
 }) => {
-  // console.log("buttonColorValue in call to action", buttonColor);
   const [show, setShow] = useState(true);
   const {
     setEditorBtn,
@@ -135,9 +133,9 @@ const CallToAction = ({
       >
         <td
           style={{
-            padding: (show && showVal) ? "18px" : "20px",
+            padding: show && showVal ? "18px" : "20px",
             border: show && showVal && "2px solid #74D1EA",
-            width: (show && showVal) ? "calc(100% - 4px)" : "100%",
+            width: show && showVal ? "calc(100% - 4px)" : "100%",
           }}
         >
           <table align="center" style={{ textDecoration: "none" }}>

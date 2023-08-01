@@ -18,7 +18,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Contentcontext } from "../context/Context";
 
-import Preview_template from "../components/preview_template";
+import {PreviewTemplate} from "../components/preview_template";
 import { IoMdAlert } from "react-icons/io";
 import Icon from "../Images/Icon-1.svg";
 import Icon2 from "../Images/Icon-2.svg";
@@ -34,7 +34,7 @@ export default function Templatepage() {
   const [value, setvalue] = useState(false);
   const [fileUploadError, setFileUploadError] = useState(false);
   const [indexVal, setIndexVal] = useState(-1);
- const [editFileData,setEditFileData]=useState([]);
+  const [editFileData, setEditFileData] = useState([]);
   const {
     setArr,
     setarr1,
@@ -54,32 +54,23 @@ export default function Templatepage() {
 
   useEffect(() => {
     setEditorBtn("s");
-  }, []);
+  }, [setEditorBtn]);
 
   const editClickHandler = (index) => {
-console.log(editFileData);
-    if(editFileData.length!==0){
-
+    if (editFileData.length !== 0) {
       if (data && data.length !== 0) {
         setstate(true);
-      }
-      else{
+      } else {
         setArr(editFileData);
-        navigate("/template")
+        navigate("/template");
       }
-    
+
       return;
     }
     if (data && data.length !== 0) {
-      // console.log(
-      //   "this is the console value",
-      //   localStorage.getItem("templateArray")
-      // );
-      console.log("this is index value" + index);
       setArr(pre_template[index]);
       setstate(true);
     } else {
-      console.log("entering");
       setArr(pre_template[index]);
       navigate("/template");
     }
@@ -399,8 +390,6 @@ console.log(editFileData);
                       color: "#000000",
                     }}
                     onClick={() => {
-                      // setArr([]);
-                      // console.log(setIndexVal);
                       setFileUploadError(false);
                     }}
                   >
@@ -552,8 +541,6 @@ console.log(editFileData);
                     color: "#000000",
                   }}
                   onClick={() => {
-                    // setArr([]);
-                    // console.log(setIndexVal);
                     setstate(false);
                     navigate("/template");
                   }}
@@ -641,7 +628,7 @@ console.log(editFileData);
                 overflowX: "hidden",
               }}
             >
-              <Preview_template />
+              <PreviewTemplate />
             </div>
 
             <div
@@ -805,7 +792,7 @@ console.log(editFileData);
             </div>
           </div>
 
-          {data && data.length != 0 ? (
+          {data && data.length !== 0 ? (
             <div className="templatePage-Card">
               <div className="image-container">
                 <img src={Icon3} alt="icon" className="templatepage-icon" />
@@ -1070,8 +1057,6 @@ console.log(editFileData);
                       width: "271px",
 
                       height: "55px",
-
-                      top: "254px",
 
                       background: "#343435",
 

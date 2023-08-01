@@ -2,9 +2,8 @@ import React, { useState, useContext } from "react";
 import "jodit";
 import "jodit/build/jodit.min.css";
 import JoditEditor from "jodit-react";
-import { renderToString } from "react-dom/server";
 import { Contentcontext } from "../../context/Context";
-import "./main.css"
+import "./main.css";
 import { useEffect } from "react";
 
 const copyStringToClipboard = function (str) {
@@ -17,8 +16,6 @@ const copyStringToClipboard = function (str) {
   document.execCommand("copy");
   document.body.removeChild(el);
 };
-
-
 
 const facilityMergeFields = [
   "FacilityNumber",
@@ -89,7 +86,6 @@ const buttons = [
       function onSelected(e) {
         let mergeField = e.target.value;
         if (mergeField) {
-          console.log(mergeField);
           editor.selection.insertNode(
             editor.create.inside.fromHTML("{{" + mergeField + "}}")
           );
@@ -113,7 +109,6 @@ const buttons = [
       selectElement.onchange = onSelected;
       divElement.appendChild(selectElement);
 
-      console.log(divElement);
       return divElement;
     },
   },
@@ -151,52 +146,33 @@ const editorConfig = {
 };
 
 export default function TextEditor() {
+  let [fetchValue, setFetchValue] = useState("");
 
+  const { setArr, id, arr } = useContext(Contentcontext);
+  useEffect(() => {
+    arr.map((item) => {
+      if (item.id === id) {
+        setFetchValue(`${item.componentValue}`);
 
-  let [fetchValue,setFetchValue]=useState("");
-
-
-  const { setArr,id,arr } = useContext(Contentcontext);
-  useEffect(()=>{
-    arr.map(item=>{
-    
-      if(item.id===id){
-       
-        setFetchValue(`${item.componentValue}`)
-        console.log("Fetch value",typeof fetchValue)
+        return item;
+      } else {
         return item;
       }
-      else{
-        return item
-      }
-     })
-  },[id,arr,fetchValue])
-  const setEditorValue=(value)=>{
-   
-
-    console.log(value.innerHTML,"value")
-     let finalArray=arr.map(item=>{
-    
-      if(item.id===id){
-        item.componentValue=value
-        // fetchValue=item.componentValue
-        // console.log("Fetch value",fetchValue)
+    });
+  }, [id, arr, fetchValue]);
+  const setEditorValue = (value) => {
+    let finalArray = arr.map((item) => {
+      if (item.id === id) {
+        item.componentValue = value;
+        return item;
+      } else {
         return item;
       }
-      else{
-        return item
-      }
-     })
-console.log(finalArray, "Final Array");
+    });
 
-     setArr(finalArray);
-  }
-console.log(arr);
- 
-  console.log(fetchValue,"I am the fetch Value");
-  
-let y=`<p>hello</p>`;
-  
+    setArr(finalArray);
+  };
+
   return (
     <div
       className="App"
@@ -207,10 +183,8 @@ let y=`<p>hello</p>`;
         className="jodit-container"
         value={fetchValue}
         config={editorConfig}
-        onChange={(value) => setEditorValue(value) }
+        onChange={(value) => setEditorValue(value)}
       />
-       
-      {/* <div>{data}</div> */}
     </div>
   );
 }

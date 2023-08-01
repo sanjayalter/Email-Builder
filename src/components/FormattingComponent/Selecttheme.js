@@ -1,8 +1,8 @@
-import { Button, Typography, Grid } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import logoLight from "../../Images/CG-logo-light.svg";
 import logoDark from "../../Images/CG-logo-dark.svg";
-import { BsFilterLeft, BsFilter, BsFilterRight } from "react-icons/bs";
+import { BsFilterLeft, BsFilter } from "react-icons/bs";
 import React from "react";
 import { useEmailTemplate } from "../../context/email-template";
 import { useContext } from "react";
@@ -31,7 +31,6 @@ const Selecttheme = () => {
         marginLeft: "32px",
         width: "91.6%",
         margin: "auto",
-        // border: "1px solid black",
       }}
     >
       <Typography sx={typeStyle} variant="h6">
@@ -105,42 +104,6 @@ const Selecttheme = () => {
               <Typography variant="text">Dark Mode</Typography>
             </Stack>
           </Button>
-          {/* this is the code for  */}
-          {/* <Button
-            sx={{ color: "black" }}
-            onClick={() =>
-              emailTemplateDispatcher({
-                type: "CHANGE_HEADER_BLACK",
-                payload: {
-                  darkMode: "black",
-                  libtype: "Image",
-                  values: {
-                    alignment: "center",
-                    bgColor: "#000000",
-                    width: 200,
-                    src: "https://cginfinity.com/wp-content/uploads/2022/04/cgi-logo.svg",
-                  },
-                },
-              })
-            }
-          >
-            <Stack sx={{ padding: "16px" }}>
-              <Box
-                sx={{ backgroundColor: "#002C3F" }}
-                width="156px"
-                height="46.33px"
-              >
-                <img
-                  style={{ marginTop: "16px" }}
-                  width="62.29px"
-                  height="14.33px"
-                  src={logoLight}
-                  alt="Black Mode"
-                />
-              </Box>
-              <Typography variant="text">Black Mode</Typography>
-            </Stack>
-          </Button> */}
         </Stack>
       </Box>
       <Typography sx={typeStyle} variant="h6">

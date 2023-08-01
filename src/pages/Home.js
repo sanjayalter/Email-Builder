@@ -1,6 +1,5 @@
 import React from "react";
-import Context, { Contentcontext } from "../context/Context";
-import Header from "../components/header";
+import { Contentcontext } from "../context/Context";
 import Display from "../components/Display";
 import Editor from "../components/Editor";
 import Confirmation from "../components/Confirmation";
@@ -9,7 +8,6 @@ import { useContext } from "react";
 
 const Home = () => {
   const { confirmation,fileNameError ,setFileNameError,  setConfirmation,} = useContext(Contentcontext);
-  console.log(confirmation);
   return (
     <>
       {confirmation  && <Background />}

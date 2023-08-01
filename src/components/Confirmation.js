@@ -1,18 +1,18 @@
 import React from "react";
 
-// import { IoCloseSharp } from "react-icons/io5";
+
 
 import { IoMdAlert } from "react-icons/io";
 
-import { BsFillCheckCircleFill } from "react-icons/bs";
+
 import { useContext } from "react";
 import { Contentcontext } from "../context/Context";
 
 const Confirmation = ({ msg1,msg2,handler,type }) => {
-  const { setConfirmation, setArr, setEditorBtn } = useContext(Contentcontext);
+  const { setArr, setEditorBtn } = useContext(Contentcontext);
   const col = "red";
 
-  const size = 72;
+
   
 
   const cancelbuttonStyle = {
@@ -65,7 +65,7 @@ const Confirmation = ({ msg1,msg2,handler,type }) => {
     <div
       style={{
         boxShadow: "0px 2px 5px rgba(0,0,0,0.1)",
-        backgroundColor: "#ffffff", // textAlign: "center",
+        backgroundColor: "#ffffff",
         width: "30rem",
         zIndex: "100",
         position: "fixed",
@@ -82,11 +82,11 @@ const Confirmation = ({ msg1,msg2,handler,type }) => {
           justifyContent: "center",
           alignItems: "center",
           margin: "auto",
-          marginBottom: "32px", // border: "1px solid black",
+          marginBottom: "32px", 
         }}
       >
         <div style={{ color: col }}>
-          <IoMdAlert size="72" /> {/* <BsFillCheckCircleFill size={size} /> */}
+          <IoMdAlert size="72" /> 
         </div>
         <div
           style={{
@@ -102,7 +102,7 @@ const Confirmation = ({ msg1,msg2,handler,type }) => {
           style={{
             fontSize: "16px",
             lineHeight: "20px",
-            textAlign: "center", //374px
+            textAlign: "center", 
             width: "23rem",
             marginBottom: "24px",
           }}
@@ -116,7 +116,7 @@ const Confirmation = ({ msg1,msg2,handler,type }) => {
             flexDirection: "row",
             gap: "16px",
 
-            justifyContent: "right", // border: "1px solid green",
+            justifyContent: "right", 
           }}
         >
 
@@ -127,7 +127,7 @@ const Confirmation = ({ msg1,msg2,handler,type }) => {
             style={cancelbuttonStyle}
             onClick={() => {
               handler(false);
-              // setArr([]);
+              
             }}
           >
             Cancel
@@ -148,7 +148,7 @@ const Confirmation = ({ msg1,msg2,handler,type }) => {
             flexDirection: "row",
             gap: "16px",
 
-            justifyContent: "right", // border: "1px solid green",
+            justifyContent: "right", 
           }}
         >
 
@@ -159,7 +159,7 @@ const Confirmation = ({ msg1,msg2,handler,type }) => {
             style={cancelbuttonStyle}
             onClick={() => {
               handler(false);
-              // setArr([]);
+            
             }}
           >
             Continue

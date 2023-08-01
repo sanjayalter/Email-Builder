@@ -1,4 +1,4 @@
-import { Typography, Select, MenuItem, Grid, Button } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import React, { useState, useContext } from "react";
 import { Contentcontext } from "../../context/Context";
@@ -8,7 +8,6 @@ const Linkbutton = () => {
 
 
   const [url, setUrl] = useState("");
-  // const [fontFamily, setFontFamily] = useState("Roboto");
   const [buttonValue, setButtonValue] = useState("");
   const [btnColor, setBtnColor] = useState("")
   const changeHandler = (e) => {
@@ -31,11 +30,10 @@ const Linkbutton = () => {
         return item
       }
     })
-  }, [id])
+  }, [id,arr])
   
   
   const saveChanges = () => {
-    // console.log("btnColor value", btnColor);
     let finalArray = arr.map(item => {
       console.log(item);
       if (item.id === id) {
@@ -48,9 +46,6 @@ const Linkbutton = () => {
         return item
       }
     })
-
-
-    // console.log(finalArray, "Final Array");
 
     setArr(finalArray);
   }
@@ -66,7 +61,7 @@ const Linkbutton = () => {
           marginLeft: "350px",
           width: "30px",
           height: "30px",
-          // borderRadius: "4px",
+         
           outline: "none"
         }}
           onChange={() => {
@@ -82,7 +77,6 @@ const Linkbutton = () => {
             width: "91.6%",
             maxWidth: "423px",
             marginBottom: "28px",
-            // border: "1px solid black",
           }}
         >
           <Typography
@@ -110,9 +104,6 @@ const Linkbutton = () => {
             }}
             type="text"
             value={buttonValue}
-            // onChange={(e) => {
-            //   setLink(e.target.value);
-            // }}
             onChange={changeHandler}
             placeholder="Click Here"
           />
@@ -122,7 +113,7 @@ const Linkbutton = () => {
             width: "91.6%",
             maxWidth: "423px",
             marginBottom: "28px",
-            // border: "1px solid black",
+        
           }}
         >
           <Typography
@@ -164,7 +155,6 @@ const Linkbutton = () => {
           width: "91.55%",
           justifyContent: "right",
           margin: "auto",
-          // border: "1px solid red",
         }}
       >
         <button

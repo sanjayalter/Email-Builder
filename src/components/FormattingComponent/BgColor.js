@@ -1,4 +1,4 @@
-import { Button, Typography, Grid } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 
 import React from "react";
@@ -33,7 +33,7 @@ const BgColor = () => {
         justifyContent="center"
         gap="16px"
         mb="28px"
-        // border="1px solid black"
+      
       >
         <Button sx={buttonStyle}>
           <Stack>
@@ -96,7 +96,6 @@ const BgColor = () => {
           Cancel
         </button>
         <button
-          // href="#contained-buttons"
           style={{
             backgroundColor: "#FFB81C",
             color: "black",
