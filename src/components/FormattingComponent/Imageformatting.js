@@ -1,25 +1,20 @@
 import React, { useState, useContext, useEffect } from "react";
-// import axios from "axios";
 import { Box } from "@mui/system";
-import { Button, Stack, Grid, Typography } from "@mui/material";
-import { FiUploadCloud } from "react-icons/fi";
+import { Typography } from "@mui/material";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../../config/firebase";
 import { Contentcontext } from "../../context/Context";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import UploadIcon from "@mui/icons-material/Upload";
-import { v4 as uuidv4 } from "uuid";
 import Switch from "@mui/material/Switch";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import{ v4 as uuid} from 'uuid';
+import { v4 as uuid } from "uuid";
 
 const Imageformatting = () => {
   const [link, setLink] = useState("");
   const [imgTitle, setImgTitle] = useState("");
   const [imgButtonLink, setImgButtonLink] = useState("");
   const [disabledBtn, setDisabledBtn] = useState();
-  const supabase = useSupabaseClient();
-  const user = useUser();
 
   const { arr, setArr, id, setEditorBtn } = useContext(Contentcontext);
 
@@ -69,7 +64,6 @@ const Imageformatting = () => {
 
   useEffect(() => {
     arr.map((item) => {
-      // console.log(item);
       if (item.id === id) {
         setImgTitle(item.imgName);
         setImgButtonLink(item.imgBtnUrl);
@@ -79,18 +73,13 @@ const Imageformatting = () => {
         } else {
           setLink("");
         }
-        // return item;
       }
     });
-  }, [id]);
+  }, [id, arr]);
 
   const saveChanges = () => {
-    // console.log("btnColor value", btnColor);
     let finalArray = arr.map((item) => {
-      // console.log(item);
       if (item.id === id) {
-        // item.componentValue = url;
-        // item.imgName = localName;
         item.isUploaded = true;
         item.imgBtnUrl = imgButtonLink;
         item.disableUrl = disabledBtn;
@@ -100,66 +89,39 @@ const Imageformatting = () => {
       }
     });
 
-    // console.log(finalArray, "Final Array");
-
     setArr(finalArray);
     setEditorBtn("s");
   };
 
-  // async function getImages(name, localName) {
-  //   // console.log(name);
-  //   const { data, error } = await supabase.storage.from("Demo").list();
-
-  //   if (data !== null) {
-  //     let url = `https://udqpsjhnskuytmiteqwd.supabase.co/storage/v1/object/public/Demo/${name}`;
-  //     let finalArray = arr.map((item) => {
-  //       if (item.id === id) {
-  //         item.componentValue = url;
-  //         item.imgName = localName;
-  //         item.isUploaded = true;
-  //         item.imgBtnUrl = imgButtonLink;
-  //         // item.disableUrl = disabledBtn;
-  //         // setImgTitle(item.imgName);
-  //         // setLink(item.componentValue)
-  //         return item;
-  //       } else {
-  //         return item;
-  //       }
-  //     });
-  //     setArr(finalArray);
-  //   } else {
-  //     console.log("Error");
-  //   }
-  // }
-
-
-
   function getCurrentDateAndTime() {
     const currentDateAndTime = new Date();
-  
-    const day = String(currentDateAndTime.getDate()).padStart(2, '0');
-    const month = String(currentDateAndTime.getMonth() + 1).padStart(2, '0');
+
+    const day = String(currentDateAndTime.getDate()).padStart(2, "0");
+    const month = String(currentDateAndTime.getMonth() + 1).padStart(2, "0");
     const year = currentDateAndTime.getFullYear();
-  
-    const hours = String(currentDateAndTime.getHours()).padStart(2, '0');
-    const minutes = String(currentDateAndTime.getMinutes()).padStart(2, '0');
-    const seconds = String(currentDateAndTime.getSeconds()).padStart(2, '0');
-  
+
+    const hours = String(currentDateAndTime.getHours()).padStart(2, "0");
+    const minutes = String(currentDateAndTime.getMinutes()).padStart(2, "0");
+    const seconds = String(currentDateAndTime.getSeconds()).padStart(2, "0");
+
     return `${day}-${month}-${year}_${hours}-${minutes}-${seconds}`;
   }
   const upoloadImage = (data) => {
-    console.log("Uploading Image......");
-    console.log(data);
     if (data == null) {
-      console.log("not able to upload it");
       return;
     }
 
-    const imageRef = ref(storage, `${data.target.files[0].name.split('.')[0]}-${uuid()}-${getCurrentDateAndTime()}.${data.target.files[0].name.split('.')[1]}`);
-    console.log("Trying to upload it");
+    const imageRef = ref(
+      storage,
+      `${
+        data.target.files[0].name.split(".")[0]
+      }-${uuid()}-${getCurrentDateAndTime()}.${
+        data.target.files[0].name.split(".")[1]
+      }`
+    );
+
     uploadBytes(imageRef, data.target.files[0]).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        console.log("I am here");
         let finalArray = arr.map((item) => {
           if (item.id === id) {
             item.componentValue = url;
@@ -190,7 +152,7 @@ const Imageformatting = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        // border: "1px solid black",
+      
       }}
     >
       <button
@@ -233,7 +195,7 @@ const Imageformatting = () => {
           marginTop: "24px",
           marginBottom: "24px",
           width: "100%",
-          // border: "1px solid red",
+       
         }}
       >
         OR
@@ -241,9 +203,8 @@ const Imageformatting = () => {
       <Box
         sx={{
           width: "81.6%",
-          marginBottom: "28px",
           marginBottom: "24px",
-          // border: "1px solid blue",
+       
         }}
       >
         <Typography
@@ -310,7 +271,7 @@ const Imageformatting = () => {
             marginBottom: "8px",
             fontSize: "16px",
             lineHeight: "19px",
-            // border: "1px solid green",
+        
           }}
         >
           Add Url to image
@@ -332,9 +293,8 @@ const Imageformatting = () => {
       <Box
         sx={{
           width: "81.6%",
-          marginBottom: "28px",
           marginBottom: "24px",
-          // border: "1px solid blue",
+        
         }}
       >
         <Typography
@@ -366,20 +326,6 @@ const Imageformatting = () => {
           }}
           disabled={disabledBtn}
           type="text"
-          // value={link}
-          // onChange={(e) => {
-          //   let finalArray = arr.map((item) => {
-          //     if (item.id === id) {
-          //       item.componentValue = e.target.value;
-          //       item.isUploaded = false;
-          //       setLink(item.componentValue);
-          //       return item;
-          //     } else {
-          //       return item;
-          //     }
-          //   });
-          //   setArr(finalArray);
-          // }}
           placeholder="https://example.example.com"
         />
       </Box>
@@ -392,25 +338,9 @@ const Imageformatting = () => {
           gap: "16px",
           width: "91.55%",
           justifyContent: "right",
-          // border: "1px solid red",
         }}
       >
-        {/* This is cancel button code  */}
-        {/* <button
-          variant="outlined"
-          style={{
-            color: "black",
-            fontWeight: "bold",
-            padding: "4px 16px",
-            background: "none",
-            border: "1px solid black",
-            borderRadius: "4px",
-            fontSize: "14px",
-            lineHeight: "32px",
-          }}
-        >
-          Cancel
-        </button> */}
+       
         <button
           className="imageformatting-save-button"
           style={{

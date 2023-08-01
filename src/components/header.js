@@ -1,6 +1,4 @@
 import CG_Logo_GoldNavy_header from "../utils/CG_Logo_GoldNavy_header.svg";
-import { MdAccountCircle } from "react-icons/md";
-import { AiFillCaretDown } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -28,7 +26,7 @@ const Header = () => {
             navigate("/");
           }}
         >
-          <img src={CG_Logo_GoldNavy_header}></img>
+          <img src={CG_Logo_GoldNavy_header} alt="logo-icon"></img>
         </div>
       </div>
     </>

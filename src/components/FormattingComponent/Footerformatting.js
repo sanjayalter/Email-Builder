@@ -1,4 +1,4 @@
-import { Button, Typography, Grid } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import footer_logo_light from "../../Images/CG-footer-light.svg";
 import footer_logo_dark from "../../Images/CG-footer-dark.svg";
@@ -20,7 +20,6 @@ const Footerformatting = () => {
         marginLeft: "32px",
         width: "91.6%",
         margin: "auto",
-        // border: "1px solid black",
       }}
     >
       <Typography sx={typeStyle} variant="h6">

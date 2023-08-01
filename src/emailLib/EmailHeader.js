@@ -1,16 +1,6 @@
-// import "./styles.css";
-import { useState } from "react";
+
 
 export default function EmailHeader(props) {
-  const [header, setHeader] = useState({
-    alignment: "center",
-    bgColor: "#FFFFFF",
-    width: 200,
-    subtitleColor: "#002C3F",
-
-    src: "https://cginfinity.com/wp-content/uploads/2022/04/logo-footer.svg",
-  });
-
   return (
     <>
       <table
@@ -25,7 +15,7 @@ export default function EmailHeader(props) {
           paddingLeft: "10px",
           paddingRight: "10px",
           backgroundColor: props.bgColor,
-          // border:'1px solid black',
+     
         }}
       >
         <tr style={{ width: "600px" }}>

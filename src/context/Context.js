@@ -1,6 +1,5 @@
 import React, { createContext, useState } from "react";
 
-// import CallToAction from "./TemplateComponents/CallToAction";
 
 export const Contentcontext = createContext();
 
