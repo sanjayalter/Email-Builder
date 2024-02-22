@@ -3,10 +3,12 @@ import { Contentcontext } from "../context/Context";
 import Content from "./TemplateComponents/Content";
 import Images from "./TemplateComponents/Images";
 import CallToAction from "./TemplateComponents/CallToAction";
+import CG_Logo_GoldNavy_header from "../utils/CG_Logo_GoldNavy_header.svg";
 import { useEmailTemplate } from "../context/email-template";
 import ImageContent from "../emailLib/ImageContent";
 import Footer from "../emailLib/Footer";
 import EmailHeader from "../emailLib/EmailHeader";
+// import Header from "./header";
 
 const Template = () => {
   const { arr, setEditorBtn, setFormatting } = useContext(Contentcontext);
@@ -14,32 +16,36 @@ const Template = () => {
     localStorage.setItem("templateArray", JSON.stringify(arr));
   }, [arr]);
 
+  const bgc = "#ffffff";
 
   const { emailTemplate } = useEmailTemplate();
   const { alignment } = useContext(Contentcontext);
+  // console.log(emailTemplate.darkMode, " I am the state");
 
-  let headerLight={
+  const [headerLight, setHeaderLight] = useState({
+    // alignment: "center",
     bgColor: "#FFFFFF",
     width: 200,
     subtitleColor: "#002C3F",
-    src: "https://firebasestorage.googleapis.com/v0/b/email-builder-demo-1e3fd.appspot.com/o/CG-Logo_GoldNavy.png?alt=media&token=ad197cef-bf8c-41d3-84d9-3bcc2f4b2120&_gl=1*pvb0ik*_ga*NDA1ODcxNS4xNjc2OTYwNzgw*_ga_CW55HF8NVT*MTY4NTY4NjkxOC4yMC4xLjE2ODU2ODgwNzAuMC4wLjA.",
-  }
+    src:"https://firebasestorage.googleapis.com/v0/b/email-builder--product.appspot.com/o/CG_Logo-gold_blue%203x.png?alt=media&token=667e0dc5-fff6-4880-9061-015452bf88d8"
+   
+  });
 
-
-  let headerDark={
+  const [headerDark, setHeaderDark] = useState({
+    // alignment: "center",
     bgColor: "#002C3F",
     width: 200,
     subtitleColor: "#ffffff",
-    src: "https://firebasestorage.googleapis.com/v0/b/email-builder-demo-1e3fd.appspot.com/o/CG-Logo_White.png?alt=media&token=7ec56668-8b78-45fb-85d4-0296ff430049&_gl=1*1u1b9zb*_ga*NDA1ODcxNS4xNjc2OTYwNzgw*_ga_CW55HF8NVT*MTY4NTY4NjkxOC4yMC4xLjE2ODU2ODgxNDIuMC4wLjA.",
-  }
+    src: "https://firebasestorage.googleapis.com/v0/b/email-builder--product.appspot.com/o/CG_Logo-gold_white%203x.png?alt=media&token=56143689-7df1-46c8-8786-d3d31a1513ac",
+  });
 
-  let headerBlack={
+  const [headerBlack, setHeaderBlack] = useState({
+    // alignment: "center",
     bgColor: "#000000",
     width: 200,
     subtitleColor: "#ffffff",
-    src: "https://firebasestorage.googleapis.com/v0/b/email-builder-demo-1e3fd.appspot.com/o/CG-Logo_White.png?alt=media&token=7ec56668-8b78-45fb-85d4-0296ff430049&_gl=1*1u1b9zb*_ga*NDA1ODcxNS4xNjc2OTYwNzgw*_ga_CW55HF8NVT*MTY4NTY4NjkxOC4yMC4xLjE2ODU2ODgxNDIuMC4wLjA.",
-  }
-
+    src: "https://firebasestorage.googleapis.com/v0/b/email-builder--product.appspot.com/o/CG_Logo-gold_white%203x.png?alt=media&token=56143689-7df1-46c8-8786-d3d31a1513ac",
+  });
 
   return (
     <div
@@ -47,8 +53,10 @@ const Template = () => {
       style={{
         boxSizing: "border-box",
         display: "flex",
+        // justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        // border: "1px solid black",
         zIndex: "100",
       }}
     >
@@ -56,6 +64,7 @@ const Template = () => {
         className="templateInnerLayer"
         style={{
           textAlign: "center",
+          // border: "1px solid black",
           width: "100%",
         }}
         id="finalTemplate"
@@ -64,11 +73,16 @@ const Template = () => {
           align="center"
           style={{
             width: "100%",
+            //  maxwidth: "100%",
             height: "100%",
             backgroundColor: "#F4F5F5",
+            // backgroundColor: "aqua",
+            //  border:'1px solid green'
           }}
         >
           <div>
+            {/* <!-- Start container for logo --> */}
+
             <table
               align="center"
               style={{
@@ -80,6 +94,7 @@ const Template = () => {
                 backgroundColor: "#ffffff",
                 padding: "0",
                 borderSpacing: "none",
+                // border: "1px solid yellow",
               }}
               cellPadding="0"
               cellSpacing="0"
@@ -123,6 +138,8 @@ const Template = () => {
                       emailTemplate.darkMode === "black" && (
                         <EmailHeader {...headerBlack} />
                       )}
+
+                    {/* {alignment === "center" && emailTemplate.darkMode == "dark" && (<)} */}
                   </td>
                 </tr>
               </tbody>
