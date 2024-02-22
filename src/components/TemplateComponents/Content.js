@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import { Contentcontext } from "../../context/Context";
 import { AiFillDelete } from "react-icons/ai";
 import { RiDragMove2Line } from "react-icons/ri";
@@ -22,22 +22,38 @@ const Content = ({ indexVal, userValue, id, item }) => {
   } = useContext(Contentcontext);
 
   return (
+    // <div style={{ border: "1px solid black" }}>
     <div
       style={{
         position: "relative",
         backgroundColor: "none",
         boxSizing: "border-box",
+        // width: "600px",
+        // height: show ? "calc(100% - 4px)" : "100%",
+        // paddingTop: show ? "22px" : "24px",
+        // paddingBottom: show ? "28px" : "30px",
+        // paddingLeft: show ? "22px" : "24px",
+
+        // border: show && showVal && "2px solid #74D1EA",
+        // border: "2px solid #74D1EA",
       }}
+      // draggable
       onDragOver={(e) => {
         e.preventDefault();
+        // console.log(indexVal);
       }}
       onDragEnter={() => {
+        // setIndVal(indexVal);
         setShow(true);
+        // console.log(indVal);
       }}
       onDragLeave={() => {
+        // setIndVal(-1);
         setShow(false);
+        // console.log(indVal);
       }}
       onDrop={() => {
+        // console.log("rop of Content");
         let temp = [...arr];
         temp.splice(indVal, 1);
         setArr(temp);
@@ -98,6 +114,7 @@ const Content = ({ indexVal, userValue, id, item }) => {
           </div>
           <div
             onClick={(e) => {
+              console.log("I am getting clicked edit button ");
               e.stopPropagation();
               setEditorBtn("f");
               setFormatting("texteditor");
@@ -110,17 +127,26 @@ const Content = ({ indexVal, userValue, id, item }) => {
             draggable="true"
             onDragStart={() => {
               setIndVal(indexVal);
-
+              // console.log("dragging start");
               setSelectedComponent(item);
+              // console.log(selectedComponent);
             }}
             onDragEnd={() => {
               setIndVal(-1);
+              // console.log("dragging stop");
+              // let temp = [...arr];
+              // temp.splice(indexVal, 1);
+              // setArr(temp);
             }}
           >
             <RiDragMove2Line size="21px" />
           </div>
         </div>
       )}
+
+      {/* <div dangerouslySetInnerHTML={{__html:data}} />
+    
+  </div> */}
 
       <table
         style={{
@@ -140,10 +166,10 @@ const Content = ({ indexVal, userValue, id, item }) => {
           <td
             align="center"
             style={{
-              paddingTop: show && showVal ? "22px" : "24px",
-              paddingBottom: show && showVal ? "22px" : "24px",
-              paddingLeft: show && showVal ? "22px" : "24px",
-              paddingRight: show && showVal ? "22px" : "24px",
+              paddingTop: (show && showVal) ? "22px" : "24px",
+              paddingBottom: (show && showVal) ? "22px" : "24px",
+              paddingLeft: (show && showVal) ? "22px" : "24px",
+              paddingRight: (show && showVal) ? "22px" : "24px",
             }}
           >
             <div
@@ -159,6 +185,7 @@ const Content = ({ indexVal, userValue, id, item }) => {
         </tr>
       </table>
     </div>
+    // </div>
   );
 };
 

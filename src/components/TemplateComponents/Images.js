@@ -1,11 +1,21 @@
+import { Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { Contentcontext } from "../../context/Context";
 import ImageIcon from "../../Images/ImageIcon.svg";
 import { AiFillDelete } from "react-icons/ai";
 import { RiDragMove2Line } from "react-icons/ri";
 import { MdModeEditOutline } from "react-icons/md";
+// import "./Images.css";
 
-const Images = ({ indexVal, item, imgsrc, id, imgBtnUrl, disableUrl }) => {
+const Images = ({
+  indexVal,
+  item,
+  imgsrc,
+  id,
+  imgName,
+  imgBtnUrl,
+  disableUrl,
+}) => {
   const [imgWidth, setImgWidth] = useState();
   const getMeta = (url, getWidth) => {
     const img = new Image();
@@ -29,6 +39,7 @@ const Images = ({ indexVal, item, imgsrc, id, imgBtnUrl, disableUrl }) => {
     selectedComponent,
     setSelectedComponent,
     showVal,
+    disable,
   } = useContext(Contentcontext);
 
   return (
@@ -55,6 +66,7 @@ const Images = ({ indexVal, item, imgsrc, id, imgBtnUrl, disableUrl }) => {
       }}
       onMouseEnter={() => {
         setShow(true);
+        console.log("Enterrring");
       }}
       onMouseLeave={() => {
         setIndVal(-1);
@@ -69,6 +81,7 @@ const Images = ({ indexVal, item, imgsrc, id, imgBtnUrl, disableUrl }) => {
           height: "100%",
           zIndex: "10",
           boxSizing: "border-box",
+          // border: "2px solid #74D1EA",
           backgroundColor: "transparent",
         }}
       />
@@ -161,7 +174,7 @@ const Images = ({ indexVal, item, imgsrc, id, imgBtnUrl, disableUrl }) => {
         className="image-wrapper-table"
         style={{
           width: "600px",
-
+          // border: "1px solid blue",
           backgroundColor: "#FFFFFF",
           textAlign: "center",
           lineHeight: 0,
@@ -177,12 +190,13 @@ const Images = ({ indexVal, item, imgsrc, id, imgBtnUrl, disableUrl }) => {
             width: "600px",
             padding: 0,
             margin: 0,
+            // border: "1px solid black",
           }}
         >
           <td
             style={{
               width: "600px",
-
+              // border: "1px solid red",
               padding: 0,
               margin: 0,
             }}
@@ -206,6 +220,7 @@ const Images = ({ indexVal, item, imgsrc, id, imgBtnUrl, disableUrl }) => {
             ) : (
               <a
                 href={imgBtnUrl}
+                // href="https://www.youtube.com/"
                 style={{
                   display: "flex",
                   width: "600px",

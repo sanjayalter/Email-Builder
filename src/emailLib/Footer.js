@@ -6,6 +6,7 @@ export default function Footer() {
   const [display, setDisplay] = useState(false);
   const { setEditorBtn, setFormatting, footerTheme, preview } =
     useContext(Contentcontext);
+    const year = new Date().getFullYear();
   return (
     <div
       style={{
@@ -201,7 +202,7 @@ export default function Footer() {
                       letterSpacing: 1,
                     }}
                   >
-                    © 2023 CG Infinity. All rights reserved
+                    © {year} CG Infinity. All rights reserved
                   </span>
                 </div>
               </div>

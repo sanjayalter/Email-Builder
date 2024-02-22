@@ -18,7 +18,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Contentcontext } from "../context/Context";
 
-import {PreviewTemplate} from "../components/preview_template";
+import Preview_template from "../components/preview_template";
 import { IoMdAlert } from "react-icons/io";
 import Icon from "../Images/Icon-1.svg";
 import Icon2 from "../Images/Icon-2.svg";
@@ -34,7 +34,7 @@ export default function Templatepage() {
   const [value, setvalue] = useState(false);
   const [fileUploadError, setFileUploadError] = useState(false);
   const [indexVal, setIndexVal] = useState(-1);
-  const [editFileData, setEditFileData] = useState([]);
+ const [editFileData,setEditFileData]=useState([]);
   const {
     setArr,
     setarr1,
@@ -54,23 +54,32 @@ export default function Templatepage() {
 
   useEffect(() => {
     setEditorBtn("s");
-  }, [setEditorBtn]);
+  }, []);
 
   const editClickHandler = (index) => {
-    if (editFileData.length !== 0) {
+console.log(editFileData);
+    if(editFileData.length!==0){
+
       if (data && data.length !== 0) {
         setstate(true);
-      } else {
-        setArr(editFileData);
-        navigate("/template");
       }
-
+      else{
+        setArr(editFileData);
+        navigate("/template")
+      }
+    
       return;
     }
     if (data && data.length !== 0) {
+      // console.log(
+      //   "this is the console value",
+      //   localStorage.getItem("templateArray")
+      // );
+      console.log("this is index value" + index);
       setArr(pre_template[index]);
       setstate(true);
     } else {
+      console.log("entering");
       setArr(pre_template[index]);
       navigate("/template");
     }
@@ -390,6 +399,8 @@ export default function Templatepage() {
                       color: "#000000",
                     }}
                     onClick={() => {
+                      // setArr([]);
+                      // console.log(setIndexVal);
                       setFileUploadError(false);
                     }}
                   >
@@ -541,6 +552,8 @@ export default function Templatepage() {
                     color: "#000000",
                   }}
                   onClick={() => {
+                    // setArr([]);
+                    // console.log(setIndexVal);
                     setstate(false);
                     navigate("/template");
                   }}
@@ -628,7 +641,7 @@ export default function Templatepage() {
                 overflowX: "hidden",
               }}
             >
-              <PreviewTemplate />
+              <Preview_template />
             </div>
 
             <div
@@ -792,7 +805,7 @@ export default function Templatepage() {
             </div>
           </div>
 
-          {data && data.length !== 0 ? (
+          {data && data.length != 0 ? (
             <div className="templatePage-Card">
               <div className="image-container">
                 <img src={Icon3} alt="icon" className="templatepage-icon" />
@@ -1058,6 +1071,8 @@ export default function Templatepage() {
 
                       height: "55px",
 
+                      top: "254px",
+
                       background: "#343435",
 
                       marginLeft: "31px",
@@ -1090,8 +1105,8 @@ export default function Templatepage() {
 
           <div className="version-banner">
             <p>
-              Ver <span className="version-info">2.0.1</span> Updated on{" "}
-              <span className="version-info">27-07-2023</span>
+              Ver <span className="version-info">2.0.2</span> Updated on{" "}
+              <span className="version-info">22-02-2024</span>
             </p>
           </div>
         </div>
