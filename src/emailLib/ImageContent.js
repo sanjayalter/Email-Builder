@@ -13,7 +13,9 @@ export default function ImageContent(props) {
         backgroundColor: props.bgColor,
       }}
     >
+          <p style={{display:"none"}}>People First + Driven to Transform</p>
       <tr style={{ width: "600px" }}>
+    
         <td align={"center"} style={{ width: "600px" }} width="600">
           <img
             width={props.width}
@@ -28,6 +30,7 @@ export default function ImageContent(props) {
             align="center"
             //TODO:
           />
+          {/* THis is test */}
 
           <p
             style={{

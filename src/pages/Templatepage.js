@@ -1105,8 +1105,8 @@ console.log(editFileData);
 
           <div className="version-banner">
             <p>
-              Ver <span className="version-info">2.0.2</span> Updated on{" "}
-              <span className="version-info">22-02-2024</span>
+              Ver <span className="version-info">2.0.3</span> Updated on{" "}
+              <span className="version-info">11-06-2024</span>
             </p>
           </div>
         </div>

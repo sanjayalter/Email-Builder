@@ -29,11 +29,13 @@ export default function EmailHeader(props) {
         }}
       >
         <tr style={{ width: "600px" }}>
+        <p style={{display:"none"}}>People First + Driven to Transform</p>
           <td
             align={"left"}
             style={{ width: "600px", marginTop: "15px" }}
             width="600"
           >
+               
             <img
               width={props.width}
               style={{

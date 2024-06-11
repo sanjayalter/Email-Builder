@@ -57,6 +57,7 @@ const Structure = () => {
       // ondrag start put the cursor to grabbing and release it onDragDrop
       <div draggable onClick={onClickHandler} style={{ width: "84.55%" }}>
         <Box
+        className="hover-button"
           draggable="true"
           sx={{
             borderRadius: "4px",
@@ -73,7 +74,7 @@ const Structure = () => {
             src={textimg}
             alt=""
           />
-          <Typography>{text}</Typography>
+          <Typography >{text} </Typography>
         </Box>
       </div>
     );

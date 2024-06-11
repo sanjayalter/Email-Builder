@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect,useRef } from "react";
 // import axios from "axios";
 import { Box } from "@mui/system";
 import { Button, Stack, Grid, Typography } from "@mui/material";
@@ -20,6 +20,7 @@ const Imageformatting = () => {
   const [disabledBtn, setDisabledBtn] = useState();
   const supabase = useSupabaseClient();
   const user = useUser();
+  const fileInputRef = useRef(null);
 
   const { arr, setArr, id, setEditorBtn } = useContext(Contentcontext);
 
@@ -178,6 +179,7 @@ const Imageformatting = () => {
   };
 
   const handleChange = (e) => {
+    console.log("Handle change in calling")
     upoloadImage(e);
   };
 
@@ -194,6 +196,7 @@ const Imageformatting = () => {
       }}
     >
       <button
+      onClick={()=> fileInputRef.current.click()}
         style={{
           color: "black",
           fontWeight: "bold",
@@ -206,6 +209,7 @@ const Imageformatting = () => {
           alignItems: "center",
           fontSize: "14px",
           border: "1px solid #B2B2B2",
+          cursor:"pointer"
         }}
       >
         <label
@@ -221,7 +225,8 @@ const Imageformatting = () => {
           <input
             type="file"
             id="upload-button"
-            style={{ display: "none" }}
+            style={{ display:"none" }}
+            ref={fileInputRef}
             onChange={(e) => handleChange(e)}
           />
         </label>

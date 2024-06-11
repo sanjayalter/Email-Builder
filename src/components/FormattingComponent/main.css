@@ -1,1 +1,21 @@
 .jodit-container { text-align: left; }
+.hover-button {
+   
+    border: none;
+  
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+ 
+    margin: 2px 2px;
+    transition: transform 0.2s ease-in-out;/* Smooth transition */
+    cursor: pointer;
+  
+  }
+  
+  .hover-button:hover {
+    background-color: #E9ECEB;
+    transform: scale(1.05); /* Make the button look bigger */
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); Add a shadow effect */
+  }
