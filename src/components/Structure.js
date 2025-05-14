@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
-import { Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import Tt from "../Images/Tt.svg";
 import Landscape from "../Images/Landscape.svg";
 import Calltoaction from "../Images/Calltoaction.svg";
 import { Contentcontext } from "../context/Context";
-
+import Content from "./TemplateComponents/Content";
+import CallToAction from "./TemplateComponents/CallToAction";
+import Images from "./TemplateComponents/Images";
+import { useEmailTemplate } from "../context/email-template";
 import { v4 } from "uuid";
 
 const Structure = () => {
@@ -13,8 +16,9 @@ const Structure = () => {
 
   const onClickHandler = (e) => {
     const val = e.currentTarget.innerText;
-
+    console.log(val.length, " I am the value");
     let finalvalue = val.trim();
+    console.log(finalvalue.length, "This is the final value");
     if (finalvalue === "Content") {
       setArr([
         ...arr,
@@ -53,6 +57,7 @@ const Structure = () => {
       // ondrag start put the cursor to grabbing and release it onDragDrop
       <div draggable onClick={onClickHandler} style={{ width: "84.55%" }}>
         <Box
+        className="hover-button"
           draggable="true"
           sx={{
             borderRadius: "4px",
@@ -69,7 +74,7 @@ const Structure = () => {
             src={textimg}
             alt=""
           />
-          <Typography>{text}</Typography>
+          <Typography >{text} </Typography>
         </Box>
       </div>
     );

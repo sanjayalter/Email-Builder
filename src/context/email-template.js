@@ -1,6 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
 import React from "react";
 import ImageContent from "../emailLib/ImageContent";
+import { v4 } from "uuid";
 
 const EmailTemplate = createContext();
 
@@ -12,17 +13,21 @@ const initialState = {
 const EmailTemplateProvider = ({ children }) => {
   const reducerFun = (state, action) => {
     const { type, payload } = action;
+    // console.log("this is the value of action:", type, " &", payload);
 
     switch (type) {
       case "CHANGE_HEADER_WHITE":
+        // console.log("Change header White I am here");
         if (payload.libtype === "Image") {
           emailTracker = [<ImageContent {...payload.values} />];
+          // emailTracker.push(<ImageContent {...payload.values}/>)
         }
 
         return { ...state, darkMode: "light" };
       case "CHANGE_HEADER_DARK":
         if (payload.libtype === "Image") {
           emailTracker = [<ImageContent {...payload.values} />];
+          // emailTracker.push(<ImageContent {...payload.values}/>)
         }
 
         return { ...state, darkMode: "dark" };
@@ -30,6 +35,7 @@ const EmailTemplateProvider = ({ children }) => {
       case "CHANGE_HEADER_BLACK":
         if (payload.libtype === "Image") {
           emailTracker = [<ImageContent {...payload.values} />];
+          // emailTracker.push(<ImageContent {...payload.values}/>)
         }
 
         return { ...state, darkMode: "black" };
@@ -44,6 +50,7 @@ const EmailTemplateProvider = ({ children }) => {
     initialState
   );
 
+  console.log(emailTemplate, " whole emailTemplate");
   return (
     <EmailTemplate.Provider
       value={{ emailTemplate, emailTemplateDispatcher, emailTracker }}
